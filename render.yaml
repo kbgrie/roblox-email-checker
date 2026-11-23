@@ -1,7 +1,16 @@
 services:
   - type: web
     name: roblox-email-checker
-    env: node
+    runtime: node
     plan: free
+    region: singapore
+    branch: main
     buildCommand: npm install
     startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.1
+      - key: NODE_ENV
+        value: production
